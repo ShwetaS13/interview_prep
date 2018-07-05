@@ -1,0 +1,80 @@
+.flowPane {
+    -fx-background-color: #1d1d1d;
+}
+
+.title-bar {
+    -fx-background-color: #808080;
+}
+
+.title {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI SemiBold";
+    -fx-text-fill: #000000;
+    -fx-padding: 0 0 0 10px;
+}
+
+.copyright {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI SemiBold";
+    -fx-text-fill: #000000;
+}
+
+.grid-pane {
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+}
+
+.text-field {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Bold";
+    -fx-text-fill: #505050;
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+}
+
+.close-button {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI SemiBold";
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+    -fx-border: 0;
+}
+
+.number-keys {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Bold";
+    -fx-text-fill: #48fb47;
+    -fx-background-color: transparent;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10px;
+}
+
+.number-keys:hover {
+    -fx-background-color: #505050;
+}
+
+.number-keys:pressed, .number-keys:default:hover:pressed {
+  -fx-background-color: #505050;
+  -fx-text-fill: #1d1d1d;
+}
+
+.number-keys:focused {
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius: 10px;
+}
+
+.number-keys:disabled, .number-keys:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.number-keys:default {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+
+.number-keys:default:hover {
+    -fx-background-color: #505050;
+}

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<FlowPane fx:id="flowPane" prefHeight="600.0" prefWidth="800.0" styleClass="flowPane"
+          xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.applications.sudoku.app.MainScreenController">
+    <HBox prefHeight="40.0" prefWidth="800.0" styleClass="title-bar">
+        <Label prefHeight="40.0" styleClass="title" text="Sudoku"/>
+        <Button fx:id="closeButton" onAction="#close" prefHeight="40.0" prefWidth="40.0" styleClass="close-button"
+                text="X" translateX="680.0"/>
+    </HBox>
+    <!--<Label prefHeight="20.0" prefWidth="800.0" text=""/>-->
+    <!--<HBox prefWidth="800.0" spacing="10.0">-->
+        <!--<padding>-->
+            <!--<Insets left="125.0"/>-->
+        <!--</padding>-->
+        <!--<Button fx:id="button_1" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="1"/>-->
+        <!--<Button fx:id="button_2" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="2"/>-->
+        <!--<Button fx:id="button_3" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="3"/>-->
+        <!--<Button fx:id="button_4" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="4"/>-->
+        <!--<Button fx:id="button_5" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="5"/>-->
+        <!--<Button fx:id="button_6" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="6"/>-->
+        <!--<Button fx:id="button_7" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="7"/>-->
+        <!--<Button fx:id="button_8" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="8"/>-->
+        <!--<Button fx:id="button_9" prefHeight="30.0" prefWidth="30.0" styleClass="number-keys" text="9"/>-->
+    <!--</HBox>-->
+    <Label prefHeight="30.0" prefWidth="800.0" text=""/>
+    <GridPane prefWidth="800.0">
+        <GridPane styleClass="grid-pane" translateX="200.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+        <GridPane styleClass="grid-pane" translateX="318.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+        <GridPane styleClass="grid-pane" translateX="440.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="0" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="1" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="2" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+    </GridPane>
+    <GridPane prefWidth="800.0">
+        <GridPane styleClass="grid-pane" translateX="200.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+        <GridPane styleClass="grid-pane" translateX="318.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+        <GridPane styleClass="grid-pane" translateX="440.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="3" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="4" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="5" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+    </GridPane>
+    <GridPane prefWidth="800.0">
+        <GridPane styleClass="grid-pane" translateX="200.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="0" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="2" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+        <GridPane styleClass="grid-pane" translateX="318.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="4" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="5" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+        <GridPane styleClass="grid-pane" translateX="440.0">
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="6" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="7" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="6" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="7" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+            <TextField prefHeight="40.0" prefWidth="40.0" text="1" GridPane.columnIndex="8" GridPane.rowIndex="8" onMouseClicked="#loadNumberPad"/>
+        </GridPane>
+    </GridPane>
+    <Label prefHeight="30.0" prefWidth="800.0" text=""/>
+    <HBox prefHeight="40.0" prefWidth="800.0" >
+        <Label prefHeight="40.0" styleClass="copyright" text="\@2017 Shweta Sukumaran" translateX="575.0"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@styleSheet.css"/>
+    </stylesheets>
+</FlowPane>

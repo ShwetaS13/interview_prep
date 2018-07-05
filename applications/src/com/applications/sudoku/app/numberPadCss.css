@@ -1,0 +1,34 @@
+.grid-pane {
+    -fx-background-color: #000000;
+}
+
+.keys {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Bold";
+    -fx-text-fill: #48fb47;
+    -fx-background-color: transparent;
+}
+
+.keys:hover {
+    -fx-background-color: #505050;
+}
+
+.keys:pressed, .keys:default:hover:pressed {
+  -fx-background-color: #505050;
+  -fx-text-fill: #1d1d1d;
+}
+
+.keys:disabled, .keys:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.keys:default {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+}
+
+.keys:default:hover {
+    -fx-background-color: #505050;
+}

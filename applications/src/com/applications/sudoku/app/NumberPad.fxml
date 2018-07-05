@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+<GridPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.applications.sudoku.app.NumberPadController" styleClass="grid-pane">
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="0" GridPane.columnIndex="0" text="1" onAction="#getKey" fx:id="number_1" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="0" GridPane.columnIndex="1" text="2" onAction="#getKey" fx:id="number_2" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="0" GridPane.columnIndex="2" text="3" onAction="#getKey" fx:id="number_3" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="1" GridPane.columnIndex="0" text="4" onAction="#getKey" fx:id="number_4" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="1" GridPane.columnIndex="1" text="5" onAction="#getKey" fx:id="number_5" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="1" GridPane.columnIndex="2" text="6" onAction="#getKey" fx:id="number_6" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="2" GridPane.columnIndex="0" text="7" onAction="#getKey" fx:id="number_7" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="2" GridPane.columnIndex="1" text="8" onAction="#getKey" fx:id="number_8" />
+    <Button mnemonicParsing="false" styleClass="keys" prefWidth="40.0" prefHeight="40.0" GridPane.rowIndex="2" GridPane.columnIndex="2" text="9" onAction="#getKey" fx:id="number_9" />
+    <stylesheets>
+        <URL value="@numberPadCss.css"/>
+    </stylesheets>
+</GridPane>
