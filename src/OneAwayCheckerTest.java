@@ -1,7 +1,7 @@
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+//import org.junit.Test;
+//
+//import static org.hamcrest.CoreMatchers.is;
+//import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /**
@@ -9,17 +9,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class OneAwayCheckerTest {
 
-    @Test
-    public void testCheck() {
-        String s1 = "pale";
-        String s2 = "bake";
-
-        boolean expected = false;
-
-        OneAwayChecker oneAwayChecker = new OneAwayChecker();
-        boolean actual = oneAwayChecker.check(s1, s2);
-
-        assertThat(actual, is(expected));
-    }
+//    @Test
+//    public void testCheck() {
+//        String s1 = "pale";
+//        String s2 = "bake";
+//
+//        boolean expected = false;
+//
+//        OneAwayChecker oneAwayChecker = new OneAwayChecker();
+//        boolean actual = oneAwayChecker.check(s1, s2);
+//
+//        assertThat(actual, is(expected));
+//    }
 
 }
