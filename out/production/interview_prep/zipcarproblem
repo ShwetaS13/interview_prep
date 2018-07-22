@@ -1,0 +1,294 @@
+/*<script> 8600
+    // "turn" is called at each turn of the game
+    // your goal is to move the vehicles in order to bring people to their destination
+    // you can only:
+    //  - move vehicles (up, down, left or right, not in diagonal)
+    //  - select which people you want to pick up
+    //
+    // a vehicle can pick-up / drop people only when it's on the same
+    // coordinates as the building of origin / destination
+    //
+    // Examples of moving a vehicle:
+    //  vehicles[0].moveUp();
+    //  vehicles[0].moveDown();
+    //  vehicles[0].moveLeft();
+    //  vehicles[0].moveRight();
+    //  and very handy:
+    //  vehicles[0].moveTo(buildings[0]); >> moves 1px toward the target
+    //
+    // Picking up someone:
+    //  You can ask a vehicle to pick someone by doing something like:
+    //   vehicles[0].pick(peoples[0]);
+    //  If the vehicle is on the same building as the people during that turn, it will pick him/her up
+    //  You can pick 4 peoples max in a vehicle
+    //  Note: the vehicle will pick people up before they can move
+    //
+    // Dropping someone:
+    //  Dropping off is automatic: whenever a vehicle contains someone that has
+    //  reached destination it drops him off.
+    //  This is when you earn $50
+    //
+    // Time:
+    //  each people has a people.time, which represent the time (in turns) left
+    //  to bring them to the correct destination.
+    //  If they feel they're late, they'll go by foot.
+    //  They go at a speed of 1px every 2 turns
+    //
+    //
+    // "turn" function's params :
+    //
+    // vehicles is an array of vehicle
+    //  vehicle.x/vehicle.y is the position of the vehicle
+    //  vehicle.peoples is an array of people in the vehicle (must be <=4)
+    //
+    // peoples is an array of people who are currently not in a vehicle
+    //  people.x/people.y is the position of the people
+    //  people.destination is a string representing the name of a building
+    //
+    // buildings are the buildings
+    //  building.x/building.y is the position of the building
+    //  building.name is the name of the building
+    //
+    // You can add your own parameters to each variable, they will be copied from turn to turn.
+
+</script>
+*/
+var GOING_TO_BUILDING = 1;
+var PICKING_UP        = 2;
+var DROPPING_OFF      = 3;
+
+var buildingsLookup = null;
+
+function turn(vehicles, peoples, buildings) {
+    if(!buildingsLookup) {
+        buildingsLookup = {};
+        buildings.forEach(function(building) {
+            buildingsLookup[building.name] = building;
+        });
+    }
+
+
+    vehicles.forEach(function(vehicle, index) {
+        if(!vehicle.state) {
+            vehicle.state = GOING_TO_BUILDING;
+            vehicle.waitTime = 0;
+            vehicle.firstBuilding = true;
+            vehicle.targetBuilding = null;
+        }
+
+        switch(vehicle.state) {
+            case GOING_TO_BUILDING: {
+                goingToBuilding(vehicle, peoples, buildings);
+                break;
+            }
+
+            case PICKING_UP: {
+                pickingUp(vehicle, peoples, buildings);
+                break;
+            }
+
+            case DROPPING_OFF: {
+                droppingOff(vehicle, peoples, buildings);
+                break;
+            }
+        }
+    });
+
+}
+
+function goingToBuilding(vehicle, peoples, buildings) {
+    vehicle.state = GOING_TO_BUILDING;
+    vehicle.waitTime = 0;
+
+    if(!vehicle.targetBuilding) {
+         if(vehicle.firstBuilding) {
+            vehicle.targetBuilding = getBuilding(buildings);
+        } else {
+            vehicle.targetBuilding = getBuildingWithMostPeople(peoples, buildings);
+        }
+    }
+
+    vehicle.moveTo(vehicle.targetBuilding);
+
+    var building = getParticularBuilding(vehicle, buildings);
+    if(building) {
+        vehicle.targetBuilding = null;
+        pickingUp(vehicle, peoples, buildings);
+    }
+}
+
+function pickingUp(vehicle, peoples, buildings) {
+    vehicle.state = PICKING_UP;
+    vehicle.firstBuilding = false;
+
+    if(vehicle.waitTime <= 2) {
+        var building = getParticularBuilding(vehicle, buildings);
+        var currentQueue = [];
+
+        while(!isVehicleFull(vehicle)) {
+            var people = null;
+            var minDistance = 625;
+            var maxTime = 0;
+
+            for(var i = 0; i < peoples.length; i++) {
+                if(currentQueue.indexOf(peoples[i]) < 0) {
+                    if(isSameLocation(vehicle, peoples[i])) {
+                        var reference;
+                        if(vehicle.peoples.length > 0) {
+                            reference = vehicle.peoples[vehicle.peoples.length-1];
+                        } else {
+                            reference = building;
+                        }
+
+                        if(isGonnaMakeIt(peoples[i], vehicle.peoples)) {
+                            var distance = getOverheadDistance(vehicle.peoples) + getDistance(peoples[i], reference);
+
+                            if(distance < minDistance) {
+                                minDistance = distance;
+                                people = peoples[i];
+                            } else if(distance === minDistance && peoples[i].time > people.time) {
+                                minDistance = distance;
+                                people = peoples[i];
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(people) {
+                currentQueue.push(people);
+                vehicle.pick(people);
+                vehicle.state = DROPPING_OFF;
+                vehicle.waitTime = 0;
+            } else {
+                vehicle.waitTime++;
+                break;
+            }
+        }
+    } else {
+        goingToBuilding(vehicle, peoples, buildings);
+    }
+}
+
+function droppingOff(vehicle, peoples, buildings) {
+    vehicle.state = DROPPING_OFF;
+    vehicle.waitTime = 0;
+
+    if(vehicle.peoples.length > 0) {
+        var destination = getBuildingName(vehicle.peoples[0].destination, buildings);
+        vehicle.moveTo(destination);
+
+        if(getParticularBuilding(vehicle, buildings)) {
+            pickingUp(vehicle, peoples, buildings);
+        }
+    } else {
+        goingToBuilding(vehicle, peoples, buildings);
+    }
+}
+
+function isVehicleFull(vehicle) {
+    return vehicle.peoples.length === 4;
+}
+
+function isVehicleEmpty(vehicle) {
+    return vehicle.peoples.length === 0;
+}
+
+function getDistance(a, b) {
+    var dx = Math.abs(a.x - b.x);
+    var dy = Math.abs(a.y - b.y);
+    return dx + dy;
+}
+
+function isSameLocation(a, b) {
+    return (a.x === b.x) && (a.y === b.y);
+}
+
+function getOverheadDistance(queue) {
+    var overhead = 0;
+    queue.forEach(function(person) {
+        overhead += getDistance(getBuildingName(person.origin), getBuildingName(person.destination));
+    });
+
+    return overhead;
+}
+
+function isGonnaMakeIt(people, queue) {
+    var overhead = getOverheadDistance(queue);
+    var buildingOrigin = getBuildingName(people.origin);
+    var buildingDestination = getBuildingName(people.destination);
+    var distance = getDistance(buildingOrigin, buildingDestination);
+    var remaining = people.time - distance - overhead;
+
+    return remaining >= 0;
+}
+
+function getBuildingName(letter) {
+    return buildingsLookup[letter];
+}
+
+function getNearestBuilding(from, buildings, exceptCurrent) {
+    var minDistance = 625;
+    var nearestBuilding = null;
+
+    buildings.forEach(function(building) {
+        var distance = getDistance(from, building);
+        if(exceptCurrent) {
+            if(distance < minDistance && distance > 0) {
+                minDistance = distance;
+                nearestBuilding = building;
+            }
+        } else {
+            if(distance < minDistance) {
+                minDistance = distance;
+                nearestBuilding = building;
+            }
+        }
+    });
+
+    return nearestBuilding;
+}
+
+function getBuildingWithMostPeople(peoples, buildings) {
+    var peopleAtBuilding = [];
+
+    buildings.forEach(function(building, index) {
+        peopleAtBuilding[index] = 0;
+    });
+
+    peoples.forEach(function(people) {
+        var building = getParticularBuilding(people, buildings);
+        if(building) {
+            peopleAtBuilding[building.name.charCodeAt(0) - 'A'.charCodeAt(0)]++;
+        }
+    });
+
+    var maxBuilding = null;
+    var maxPeople = 0;
+    peopleAtBuilding.forEach(function(count, index) {
+        if(count >= maxPeople) {
+            maxPeople = count;
+            maxBuilding = buildings[index];
+        }
+    });
+
+    return maxBuilding;
+}
+
+function getParticularBuilding(what, buildings) {
+    for(var i = 0; i < buildings.length; i++) {
+        if(isSameLocation(what, buildings[i])) {
+            return buildings[i];
+        }
+    }
+
+    return null;
+}
+
+function getBuilding(buildings) {
+    return buildings[getRandonNumber(0, buildings.length-1)];
+}
+
+function getRandonNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

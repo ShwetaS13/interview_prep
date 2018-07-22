@@ -18,6 +18,10 @@ public class IslandProblem {
     }
 
     public int countIslands(int[][] array) {
+        if (array == null || array.length <= 0 || array[0].length <= 0) {
+            return -1;
+        }
+
         boolean[][] visited = new boolean[array.length][array.length];
 
         int count = 0;
